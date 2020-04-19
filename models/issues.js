@@ -1,5 +1,5 @@
-const shortid = require("shortid");
-const mongoose = require("mongoose");
+const shortid = require('shortid');
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 var issuesSchema = new Schema(
@@ -9,12 +9,12 @@ var issuesSchema = new Schema(
     created_by: { type: String, required: true },
     assigned_to: String,
     status_text: String,
-    created_on: { type: Number, default: new Date() },
-    updated_on: { type: Number, default: new Date() },
+    created_on: { type: Date, default: new Date() },
+    updated_on: { type: Date, default: new Date() },
     open: { type: Boolean, default: true },
     _id: { type: String, default: shortid.generate },
   },
-  { collection: "Issues" }
+  { collection: 'Issues' }
 );
 
-mongoose.model("Issues", issuesSchema);
+mongoose.model('Issues', issuesSchema);
