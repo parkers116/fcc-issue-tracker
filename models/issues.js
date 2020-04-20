@@ -1,8 +1,8 @@
-const shortid = require('shortid');
-const mongoose = require('mongoose');
+const shortid = require("shortid");
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-var issuesSchema = new Schema(
+let issuesSchema = new Schema(
   {
     issue_title: { type: String, required: true },
     issue_text: { type: String, required: true },
@@ -13,8 +13,10 @@ var issuesSchema = new Schema(
     updated_on: { type: Date, default: new Date() },
     open: { type: Boolean, default: true },
     _id: { type: String, default: shortid.generate },
-  },
-  { collection: 'Issues' }
+  }
+  // { collection: 'Issues' }
 );
 
-mongoose.model('Issues', issuesSchema);
+mongoose.model("Issues", issuesSchema);
+
+module.exports = issuesSchema;
